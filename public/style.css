@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 20px;
+}
+
+.box {
+  background-color: #4CAF50;
+  padding: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+/* نخفي رسالة الديسكتوب فالشاشات الصغيرة */
+.desktop-message {
+  display: none;
+}
+
+/* لما تكون الشاشة كبيرة، نخبّيو المحتوى ونظهر رسالة */
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+  .desktop-message {
+    display: block;
+    padding: 100px 20px;
+    font-size: 22px;
+    color: red;
+    background: white;
+  }
+}

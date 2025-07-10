@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>📄 صفحة 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Font Awesome للأيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      overflow-x: hidden;
+      margin: 0;
+    }
+
+    .page-content {
+      transform: translateX(-100%);
+      opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      will-change: transform, opacity;
+    }
+
+    .page-content.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .page-content.hide {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background-color: #f321b1;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      direction: rtl; /* ضروري باش "رجوع" تكون يمين وإضافة يسار */
+    }
+
+    .back-btn {
+      color: white;
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .content-area {
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-content" id="content">
+    
+    <!-- ✅ Navbar -->
+    <div class="navbar">
+      <div> الفاصيليتي</div>
+      <button class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i></button>
+    </div>
+
+
+
+  </div>
+
+  <!-- ✅ Script للأنيميشن -->
+  <script>
+    const content = document.getElementById("content");
+    const backBtn = document.getElementById("backBtn");
+
+    // دخول سلس
+    window.addEventListener("DOMContentLoaded", () => {
+      requestAnimationFrame(() => {
+        content.classList.add("show");
+      });
+    });
+
+    // رجوع سلس
+    backBtn.addEventListener("click", function(event) {
+      event.preventDefault();
+      content.classList.remove("show");
+      content.classList.add("hide");
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 400);
+    });
+  </script>
+</body>
+</html>
